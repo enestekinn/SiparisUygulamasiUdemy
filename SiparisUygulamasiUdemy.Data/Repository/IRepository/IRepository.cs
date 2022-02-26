@@ -20,6 +20,8 @@ namespace SiparisUygulamasiUdemy.Data.Repository.IRepository
         IEnumerable<T> GetAll(Expression<Func<T, bool>> filter,
             string? includeProperties = null);
         void Update(T entity);
+        void Remove(T entity);
+        void RemoveRange(IEnumerable<T> entities);
             
     }
    
