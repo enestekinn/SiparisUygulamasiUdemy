@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace SiparisUygulamasiUdemy.Data.Repository
 {
-    internal class CartRepository : Repository<Cart>, ICartRepository
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
         private ApplicationDbContext _context;
-        public CartRepository(ApplicationDbContext context) : base(context)
+
+        public ProductRepository(ApplicationDbContext context) : base(context)
         {
             _context = context;
         }

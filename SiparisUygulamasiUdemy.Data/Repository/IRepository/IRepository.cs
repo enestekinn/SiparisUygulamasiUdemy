@@ -7,22 +7,15 @@ using System.Threading.Tasks;
 
 namespace SiparisUygulamasiUdemy.Data.Repository.IRepository
 {
-    public interface IRepository<T> where T : class
-    {
-
-
-        void Add(T entity);
-
-        //sorgu yapmak icin expression kullaniyoruz.
-        T GetFirstOrDefaul(Expression<Func<T, bool>> filter,
-            string? includeProperties = null);
-
-        IEnumerable<T> GetAll(Expression<Func<T, bool>> filter,
-            string? includeProperties = null);
-        void Update(T entity);
-        void Remove(T entity);
-        void RemoveRange(IEnumerable<T> entities);
-            
-    }
-   
+     public interface IRepository<T> where T : class
+     {
+          void Add(T entity);
+          T GetFirstOrDefault(Expression<Func<T,bool>> filter,
+               string? includeProperties = null);
+          IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null,
+               string? includeProperties = null);
+          void Update(T entiy);
+          void Remove(T entity);
+          void RemoveRange(IEnumerable<T> entities);
+     }
 }

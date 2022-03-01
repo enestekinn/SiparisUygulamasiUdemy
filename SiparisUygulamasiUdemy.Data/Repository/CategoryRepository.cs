@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 
 namespace SiparisUygulamasiUdemy.Data.Repository
 {
-    public class CategoryRepository 
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
+        private ApplicationDbContext _context;
+        public CategoryRepository(ApplicationDbContext context) : base(context)
+        {
+            _context = context;
+        }
     }
 }

@@ -1,8 +1,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SiparisUygulamasiUdemy.Data;
+using SiparisUygulamasiUdemy.Data.Repository;
+using SiparisUygulamasiUdemy.Data.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//dependency injection 
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
